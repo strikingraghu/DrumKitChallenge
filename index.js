@@ -1,9 +1,18 @@
 var numberOfButtons = document.querySelectorAll(".drum").length;
 for (i = 0; i < numberOfButtons; i++) {
-    document.querySelectorAll(".drum")[i].addEventListener("click", handleClick);
-    function handleClick() {
+    document.querySelectorAll(".drum")[i].addEventListener("click", function() {
         var buttonInnerHTML = this.innerHTML;
-        switch (buttonInnerHTML) {
+        makeSound(buttonInnerHTML);
+    });
+
+document.addEventListener("keypress", function(event) {
+    makeSound(event.key)
+
+});
+
+    function makeSound(key) {
+                
+        switch (key) {
             case "w":
                 var tone1 = new Audio("sounds/kick-bass.mp3");
                 tone1.play();
